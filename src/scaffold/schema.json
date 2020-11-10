@@ -1,0 +1,39 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "$id": "ScaffoldSchema",
+    "title": "CRUD Scaffold",
+    "type": "object",
+    "description": "Says hello",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "Scaffold name",
+            "$default": {
+                "$source": "argv",
+                "index": 0
+            }
+        },
+        "fields": {
+            "type": "string",
+            "description": "enter field name",
+            "$default": {
+                "$source": "argv",
+                "index": 1
+            }
+        },
+        "path": {
+            "type": "string",
+            "format": "path",
+            "description": "The path to create the scaffold.",
+            "visible": false
+        },
+        "project": {
+            "type": "string",
+            "description": "The name of the project.",
+            "$default": {
+                "$source": "projectName"
+            }
+        }
+    },
+    "required": ["name", "fields"]
+}

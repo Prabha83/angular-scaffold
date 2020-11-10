@@ -1,0 +1,17 @@
+<form [formGroup]="<%= formName(name)%>" (ngSubmit)="onSubmit()" novalidate>
+    <% for(let idx in inputs){ %>
+    <div class="form-group">
+        <label for="exampleInputEmail1"><%=inputs[idx].name%></label>
+        <input
+            type="<%= putInputType(inputs[idx]) %>"
+            class="form-control"
+            id="txt<%=classify(inputs[idx].name)%>"
+            name="<%=inputs[idx].name%>"
+            formControleName="<%=inputs[idx].name%>"
+            aria-describedby="Enter <%=inputs[idx].name%>"
+            placeholder="Enter <%=inputs[idx].name%>"
+        />
+    </div>
+    <% } %>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
